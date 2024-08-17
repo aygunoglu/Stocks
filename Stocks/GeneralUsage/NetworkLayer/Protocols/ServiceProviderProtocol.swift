@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ServiceProviderProtocol {
-    func request<T: Decodable>(endpoint: EndpointProtocol, responseModel: T.Type, completion: @escaping (Result<T, Error>) -> Void)
+    func request<T: Decodable>(endpoint: EndpointProtocol, responseModel: T.Type, completion: @escaping (Result<T, APIError>) -> Void)
 }
