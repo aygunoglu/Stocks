@@ -9,8 +9,9 @@ import Foundation
 
 // MARK: - StocksViewModelProtocol
 protocol StocksViewModelProtocol: AnyObject {
-    var stocksDidUpdate: VoidHandler? { get set }
-    var allFields: [Field] { get }    
+    var stockListDidUpdate: VoidHandler? { get set }
+    var stockDataDidUpdate: VoidHandler? { get set }
+    var allFields: [Field] { get }
     var selectedPrimaryField: Field? { get set }
     var selectedSecondaryField: Field? { get set }
     func loadStockList()
@@ -23,11 +24,14 @@ protocol StocksViewModelProtocol: AnyObject {
 
 // MARK: - StocksViewModel
 final class StocksViewModel: StocksViewModelProtocol {
+    private var timer: Timer?
+    
     private let serviceProvider: ServiceProviderProtocol
     private var stockList: [Stock]
     private var stockDisplayItems: [StockDisplayModel] = []
     
-    var stocksDidUpdate: VoidHandler?
+    var stockListDidUpdate: VoidHandler?
+    var stockDataDidUpdate: VoidHandler?
     
     var allFields: [Field]
     var selectedPrimaryField: Field? {
@@ -67,6 +71,7 @@ final class StocksViewModel: StocksViewModelProtocol {
             case .success(let responseModel):
                 self.allFields = responseModel.fields ?? []
                 self.stockList = responseModel.stocks ?? []
+                self.stockListDidUpdate?()
                 loadStockData()
                 
             case .failure(let error):
@@ -93,7 +98,8 @@ final class StocksViewModel: StocksViewModelProtocol {
                     primaryField: selectedPrimaryField,
                     secondaryField: selectedSecondaryField
                 ) ?? []
-                self.stocksDidUpdate?()
+                self.stockDataDidUpdate?()
+                self.configureTimer()
                 
             case .failure(let error):
                 print(error)
@@ -102,6 +108,33 @@ final class StocksViewModel: StocksViewModelProtocol {
         }
     }
     
+
+}
+
+// MARK: - Timer Helpers
+extension StocksViewModel {
+    private func configureTimer() {
+        DispatchQueue.main.async {
+            self.stopTimer()
+            self.timer = Timer.scheduledTimer(
+                timeInterval: 1,
+                target: self,
+                selector: #selector(self.timerDidComplete),
+                userInfo: nil,
+                repeats: true
+            )
+        }
+    }
+    
+    func stopTimer() {
+        guard timer != nil else { return }
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc func timerDidComplete() {
+        loadStockData()
+    }
 }
 
 // MARK: TableView Helpers

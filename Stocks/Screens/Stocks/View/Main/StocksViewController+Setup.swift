@@ -17,7 +17,6 @@ extension StocksViewController {
     func setupTableView() {
         tableView = UITableView(frame: .zero, style: .plain)
         tableView.dataSource = self
-        tableView.delegate = self
         tableView.separatorStyle = .none
         
         tableView.allowsMultipleSelection = false
@@ -28,7 +27,7 @@ extension StocksViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate(
-            [tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            [tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
              tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
              tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
              tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)]
@@ -39,15 +38,45 @@ extension StocksViewController {
         }
     }
     
+    func setupHeaderView() {
+        headerView = StocksHeaderView()
+        headerView.delegate = self
+        
+        view.addSubview(headerView)
+        
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate(
+            [headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+             headerView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+             headerView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+             headerView.heightAnchor.constraint(equalToConstant: 40)]
+        )
+    }
+    
     func setupBindings() {
-        viewModel.stocksDidUpdate = stocksDidUpdate()
+        viewModel.stockListDidUpdate = stockListDidUpdate()
+        viewModel.stockDataDidUpdate = stockDataDidUpdate()
     }
 
 }
 
 // MARK: - Bindings
 extension StocksViewController {
-    func stocksDidUpdate() -> VoidHandler? {
+    func stockListDidUpdate() -> VoidHandler? {
+        return { [weak self] in
+            guard let self else { return }
+            DispatchQueue.main.async {
+                self.headerView.configureButtons(
+                    fields: self.viewModel.allFields,
+                    selectedPrimaryField: self.viewModel.selectedPrimaryField,
+                    selectedSecondaryField: self.viewModel.selectedSecondaryField
+                )
+            }
+        }
+    }
+    
+    func stockDataDidUpdate() -> VoidHandler? {
         return { [weak self] in
             guard let self else { return }
             DispatchQueue.main.async {

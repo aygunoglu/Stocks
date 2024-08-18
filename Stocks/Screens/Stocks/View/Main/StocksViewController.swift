@@ -10,13 +10,9 @@ import UIKit
 // MARK: - StocksViewController
 final class StocksViewController: UIViewController {
     var tableView: UITableView!
-    var viewModel: StocksViewModelProtocol
+    var headerView: StocksHeaderView!
     
-    lazy var headerView: StocksHeaderView = {
-        let headerView = StocksHeaderView()
-        headerView.delegate = self
-        return headerView
-    }()
+    var viewModel: StocksViewModelProtocol
     
     init(viewModel: StocksViewModelProtocol) {
         self.viewModel = viewModel
@@ -30,6 +26,7 @@ final class StocksViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGeneralView()
+        setupHeaderView()
         setupTableView()
         setupBindings()
         viewModel.loadStockList()

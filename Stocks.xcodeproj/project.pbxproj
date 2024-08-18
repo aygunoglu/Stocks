@@ -12,7 +12,6 @@
 		BF3A79FE2C720B4D00EF1FAB /* StocksHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF3A79FD2C720B4D00EF1FAB /* StocksHeaderView.xib */; };
 		BF3A7A002C720E3F00EF1FAB /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3A79FF2C720E3F00EF1FAB /* UIView+Ext.swift */; };
 		BF3A7A022C72254300EF1FAB /* StocksViewController+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3A7A012C72254300EF1FAB /* StocksViewController+Setup.swift */; };
-		BF3A7A042C72259500EF1FAB /* StocksViewController+TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3A7A032C72259500EF1FAB /* StocksViewController+TableDelegate.swift */; };
 		BF3A7A062C7225DC00EF1FAB /* StocksViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3A7A052C7225DC00EF1FAB /* StocksViewController+DataSource.swift */; };
 		BF4D9ED62C70EE52001984B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9ED52C70EE52001984B7 /* AppDelegate.swift */; };
 		BF4D9ED82C70EE52001984B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9ED72C70EE52001984B7 /* SceneDelegate.swift */; };
@@ -66,7 +65,6 @@
 		BF3A79FD2C720B4D00EF1FAB /* StocksHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StocksHeaderView.xib; sourceTree = "<group>"; };
 		BF3A79FF2C720E3F00EF1FAB /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		BF3A7A012C72254300EF1FAB /* StocksViewController+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StocksViewController+Setup.swift"; sourceTree = "<group>"; };
-		BF3A7A032C72259500EF1FAB /* StocksViewController+TableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StocksViewController+TableDelegate.swift"; sourceTree = "<group>"; };
 		BF3A7A052C7225DC00EF1FAB /* StocksViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StocksViewController+DataSource.swift"; sourceTree = "<group>"; };
 		BF4D9ED22C70EE52001984B7 /* Stocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4D9ED52C70EE52001984B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -254,7 +252,6 @@
 			children = (
 				BF4D9F0C2C70EFB6001984B7 /* StocksViewController.swift */,
 				BF3A7A012C72254300EF1FAB /* StocksViewController+Setup.swift */,
-				BF3A7A032C72259500EF1FAB /* StocksViewController+TableDelegate.swift */,
 				BF3A7A052C7225DC00EF1FAB /* StocksViewController+DataSource.swift */,
 			);
 			path = Main;
@@ -473,7 +470,6 @@
 				BF3A7A002C720E3F00EF1FAB /* UIView+Ext.swift in Sources */,
 				BF4D9F362C713AA9001984B7 /* TypeAliases.swift in Sources */,
 				BF4D9F342C712B7F001984B7 /* ViewControllerMaker.swift in Sources */,
-				BF3A7A042C72259500EF1FAB /* StocksViewController+TableDelegate.swift in Sources */,
 				BF4D9F2C2C7106E2001984B7 /* StockCellType.swift in Sources */,
 				BF3A79FC2C720B3A00EF1FAB /* StocksHeaderView.swift in Sources */,
 				BF4D9F1C2C70F7E0001984B7 /* HTTPMethod.swift in Sources */,
