@@ -28,7 +28,7 @@ enum StockArrowType {
         case .downArrow:
             return .systemRed
         case .changeless:
-            return .label
+            return .secondaryLabel
         }
     }
 }

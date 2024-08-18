@@ -11,7 +11,7 @@ final class ServiceProvider: ServiceProviderProtocol {
     private var session: URLSession {
         let configuration = URLSessionConfiguration.default
         configuration.waitsForConnectivity = true
-        configuration.timeoutIntervalForResource = 10
+        configuration.timeoutIntervalForResource = 50
         return URLSession(configuration: configuration)
     }
     
