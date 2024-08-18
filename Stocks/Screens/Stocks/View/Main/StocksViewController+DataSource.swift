@@ -16,7 +16,7 @@ extension StocksViewController: UITableViewDataSource {
         guard let stockItem = viewModel.getStockItem(for: indexPath),
               let cell = tableView.dequeueReusableCell(withIdentifier: StocksCellType.stockCell.identifier, for: indexPath) as? StockCell else {
             print("error while dequeing cell")
-            fatalError()
+            return UITableViewCell()
         }
         
         cell.configureCell(with: stockItem)

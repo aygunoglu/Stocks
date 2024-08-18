@@ -10,7 +10,7 @@ import Foundation
 // MARK: - StocksViewModelProtocol
 protocol StocksViewModelProtocol: AnyObject {
     var stockListDidUpdate: VoidHandler? { get set }
-    var stockDataDidUpdate: VoidHandler? { get set }
+    var stockDataDidUpdate: ((_ indexPathsToHighlight: [IndexPath]) -> Void)? { get set }
     var allFields: [Field] { get }
     var selectedPrimaryField: Field? { get set }
     var selectedSecondaryField: Field? { get set }
@@ -25,14 +25,17 @@ protocol StocksViewModelProtocol: AnyObject {
 // MARK: - StocksViewModel
 final class StocksViewModel: StocksViewModelProtocol {
     private var timer: Timer?
+    private var timerInterval: CGFloat = 10
     
     private let serviceProvider: ServiceProviderProtocol
     private var stockList: [Stock]
     private var stockDisplayItems: [StockDisplayModel] = []
     
+    // MARK: - Updaters
     var stockListDidUpdate: VoidHandler?
-    var stockDataDidUpdate: VoidHandler?
+    var stockDataDidUpdate: ((_ indexPathsToHighlight: [IndexPath]) -> Void)?
     
+    // MARK: - Fields
     var allFields: [Field]
     var selectedPrimaryField: Field? {
         didSet {
@@ -82,23 +85,36 @@ final class StocksViewModel: StocksViewModelProtocol {
     }
     
     private func loadStockData() {
+        let endpoint = StocksEndpoint.getStockInfo(
+            stocks: stockList.map { $0.tke ?? "" },
+            primaryField: selectedPrimaryField,
+            secondaryField: selectedSecondaryField
+        )
+        
         serviceProvider.request(
-            endpoint: StocksEndpoint.getStockInfo(
-                stocks: stockList.map { $0.tke ?? "" },
-                primaryField: selectedPrimaryField,
-                secondaryField: selectedSecondaryField
-            ),
+            endpoint: endpoint,
             responseModel: StocksDetailResponseModel.self
         ) { [weak self] result in
             guard let self else { return }
             
             switch result {
             case .success(let responseModel):
-                self.stockDisplayItems = responseModel.getDisplayModels(
+                let newModels = responseModel.getDisplayModels(
                     primaryField: selectedPrimaryField,
                     secondaryField: selectedSecondaryField
                 ) ?? []
-                self.stockDataDidUpdate?()
+                
+                let indexPathsToHighlight = getIndexPathsToHighlight(
+                    oldModels: stockDisplayItems,
+                    newModels: newModels
+                ) ?? []
+                
+                self.stockDisplayItems = compareLastValues(
+                    oldModels: stockDisplayItems,
+                    newModels: newModels
+                )
+
+                self.stockDataDidUpdate?(indexPathsToHighlight)
                 self.configureTimer()
                 
             case .failure(let error):
@@ -107,17 +123,48 @@ final class StocksViewModel: StocksViewModelProtocol {
             }
         }
     }
-    
+}
 
+// MARK: - Compare Helpers
+private extension StocksViewModel {
+    func getIndexPathsToHighlight(oldModels: [StockDisplayModel], newModels: [StockDisplayModel]) -> [IndexPath]? {
+        let indexPathsToHighlight = zip(oldModels, newModels).enumerated()
+            .filter { $1.0.lastUpdateDate != $1.1.lastUpdateDate }
+            .map { IndexPath(row: $0.0, section: 0) }
+        return indexPathsToHighlight
+    }
+    
+    func compareLastValues(oldModels: [StockDisplayModel], newModels: [StockDisplayModel]) -> [StockDisplayModel] {
+        var processedDisplayModels = newModels
+        
+        let differentIndexes = zip(oldModels, newModels).enumerated()
+            .filter { $1.0.lastValue != $1.1.lastValue }
+            .map { $0.0 }
+        
+        differentIndexes.forEach { index in
+            let newValueFormatted = newModels[index].lastValue?.replacingOccurrences(of: ",", with: ".") ?? ""
+            let oldValueFormatted = oldModels[index].lastValue?.replacingOccurrences(of: ",", with: ".") ?? ""
+            
+            if Double(newValueFormatted) ?? 0 > Double(oldValueFormatted) ?? 0 {
+                processedDisplayModels[index].arrow = .upArrow
+            } else if Double(newValueFormatted) ?? 0 < Double(oldValueFormatted) ?? 0 {
+                processedDisplayModels[index].arrow = .downArrow
+            } else {
+                processedDisplayModels[index].arrow = .changeless
+            }
+        }
+        
+        return processedDisplayModels
+    }
 }
 
 // MARK: - Timer Helpers
-extension StocksViewModel {
-    private func configureTimer() {
+private extension StocksViewModel {
+    func configureTimer() {
         DispatchQueue.main.async {
             self.stopTimer()
             self.timer = Timer.scheduledTimer(
-                timeInterval: 1,
+                timeInterval: self.timerInterval,
                 target: self,
                 selector: #selector(self.timerDidComplete),
                 userInfo: nil,

@@ -76,11 +76,12 @@ extension StocksViewController {
         }
     }
     
-    func stockDataDidUpdate() -> VoidHandler? {
-        return { [weak self] in
+    func stockDataDidUpdate() -> (_ indexPathsToHighlight: [IndexPath]) -> Void  {
+        return { [weak self] indexPathsToHighlight in
             guard let self else { return }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.tableView.highlightRows(for: indexPathsToHighlight)
             }
         }
     }

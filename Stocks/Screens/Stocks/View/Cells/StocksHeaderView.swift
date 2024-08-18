@@ -42,10 +42,12 @@ final class StocksHeaderView: UIView {
         
         fields.forEach { field in
             let primaryAction = UIAction(title: field.name ?? "") { action in
+                self.primaryFieldButton.setTitle(field.name, for: .normal)
                 self.delegate?.primaryFieldDidChange(to: field)
             }
             
             let secondaryAction = UIAction(title: field.name ?? "") { action in
+                self.secondaryFieldButton.setTitle(field.name, for: .normal)
                 self.delegate?.secondaryFieldDidChange(to: field)
             }
             

@@ -42,6 +42,8 @@ struct StockDisplayModel {
     let primaryFieldKey: String?
     let secondaryFieldKey: String?
     
+    var arrow: StockArrowType = .changeless
+    
     var primaryFieldColor: UIColor? {
         guard (primaryFieldKey == "pdd" || primaryFieldKey == "ddi") else {
             return .label

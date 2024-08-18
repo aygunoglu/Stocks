@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF38CB982C724F0F00348544 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38CB972C724F0F00348544 /* UITableView+Ext.swift */; };
+		BF38CB9A2C72550800348544 /* StockArrowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38CB992C72550800348544 /* StockArrowType.swift */; };
 		BF3A79F82C72088700EF1FAB /* StocksDetailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3A79F72C72088700EF1FAB /* StocksDetailResponseModel.swift */; };
 		BF3A79FC2C720B3A00EF1FAB /* StocksHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3A79FB2C720B3A00EF1FAB /* StocksHeaderView.swift */; };
 		BF3A79FE2C720B4D00EF1FAB /* StocksHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF3A79FD2C720B4D00EF1FAB /* StocksHeaderView.xib */; };
@@ -60,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF38CB972C724F0F00348544 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
+		BF38CB992C72550800348544 /* StockArrowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockArrowType.swift; sourceTree = "<group>"; };
 		BF3A79F72C72088700EF1FAB /* StocksDetailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksDetailResponseModel.swift; sourceTree = "<group>"; };
 		BF3A79FB2C720B3A00EF1FAB /* StocksHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksHeaderView.swift; sourceTree = "<group>"; };
 		BF3A79FD2C720B4D00EF1FAB /* StocksHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StocksHeaderView.xib; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 				BF4D9F2D2C710A5C001984B7 /* General */,
 				BF4D9F2E2C710A68001984B7 /* StocksPageResponseModel.swift */,
 				BF3A79F72C72088700EF1FAB /* StocksDetailResponseModel.swift */,
+				BF38CB992C72550800348544 /* StockArrowType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				BF4D9F252C70F89B001984B7 /* URL+Ext.swift */,
 				BF4D9F372C71E214001984B7 /* Collection+Ext.swift */,
 				BF3A79FF2C720E3F00EF1FAB /* UIView+Ext.swift */,
+				BF38CB972C724F0F00348544 /* UITableView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -468,6 +474,7 @@
 				BF4D9F2A2C7105E3001984B7 /* StocksViewModel.swift in Sources */,
 				BF4D9F162C70F783001984B7 /* EndpointProtocol.swift in Sources */,
 				BF3A7A002C720E3F00EF1FAB /* UIView+Ext.swift in Sources */,
+				BF38CB982C724F0F00348544 /* UITableView+Ext.swift in Sources */,
 				BF4D9F362C713AA9001984B7 /* TypeAliases.swift in Sources */,
 				BF4D9F342C712B7F001984B7 /* ViewControllerMaker.swift in Sources */,
 				BF4D9F2C2C7106E2001984B7 /* StockCellType.swift in Sources */,
@@ -478,6 +485,7 @@
 				BF3A7A062C7225DC00EF1FAB /* StocksViewController+DataSource.swift in Sources */,
 				BF4D9F2F2C710A68001984B7 /* StocksPageResponseModel.swift in Sources */,
 				BF4D9F0A2C70EF78001984B7 /* RootNavigationController.swift in Sources */,
+				BF38CB9A2C72550800348544 /* StockArrowType.swift in Sources */,
 				BF3A7A022C72254300EF1FAB /* StocksViewController+Setup.swift in Sources */,
 				BF4D9F382C71E214001984B7 /* Collection+Ext.swift in Sources */,
 				BF4D9F182C70F798001984B7 /* ServiceProviderProtocol.swift in Sources */,
