@@ -194,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				BF4D9F0B2C70EFA6001984B7 /* Stocks */,
-				BF4D9F102C70F0AB001984B7 /* Model */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -225,6 +224,7 @@
 				BF4D9F302C7129A5001984B7 /* Network */,
 				BF4D9F0F2C70F0A6001984B7 /* ViewModel */,
 				BF4D9F0E2C70F09F001984B7 /* View */,
+				BF4D9F102C70F0AB001984B7 /* Model */,
 			);
 			path = Stocks;
 			sourceTree = "<group>";
