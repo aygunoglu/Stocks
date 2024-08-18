@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - StocksPageResponseModel
 struct StocksPageResponseModel: Codable {
     let stocks: [Stock]?
     let fields: [Field]?
@@ -17,10 +18,12 @@ struct StocksPageResponseModel: Codable {
     }
 }
 
+// MARK: - Field
 struct Field: Codable {
     let name, key: String?
 }
 
+// MARK: - Stock
 struct Stock: Codable {
     let cod, gro, tke, def: String?
 }

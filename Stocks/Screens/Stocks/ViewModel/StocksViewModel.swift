@@ -143,15 +143,13 @@ private extension StocksViewModel {
             .map { $0.0 }
         
         differentIndexes.forEach { index in
-            let newValueFormatted = newModels[index].lastValue?.replacingOccurrences(of: ",", with: ".") ?? ""
-            let oldValueFormatted = oldModels[index].lastValue?.replacingOccurrences(of: ",", with: ".") ?? ""
+            let newValue = newModels[index].lastValue?.double ?? 0
+            let oldValue = oldModels[index].lastValue?.double ?? 0
             
-            if Double(newValueFormatted) ?? 0 > Double(oldValueFormatted) ?? 0 {
+            if newValue > oldValue {
                 processedDisplayModels[index].arrow = .upArrow
-            } else if Double(newValueFormatted) ?? 0 < Double(oldValueFormatted) ?? 0 {
+            } else if newValue < oldValue {
                 processedDisplayModels[index].arrow = .downArrow
-            } else {
-                processedDisplayModels[index].arrow = .changeless
             }
         }
         
