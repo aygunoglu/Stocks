@@ -25,9 +25,10 @@ protocol StocksViewModelProtocol: AnyObject {
 // MARK: - StocksViewModel
 final class StocksViewModel: StocksViewModelProtocol {
     private var timer: Timer?
-    private var timerInterval: CGFloat = 10
+    private var timerInterval: CGFloat = 1
     
     private let serviceProvider: ServiceProviderProtocol
+    
     private var stockList: [Stock]
     private var stockDisplayItems: [StockDisplayModel] = []
     

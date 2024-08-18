@@ -26,10 +26,8 @@
 		BF4D9F0D2C70EFB6001984B7 /* StocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F0C2C70EFB6001984B7 /* StocksViewController.swift */; };
 		BF4D9F162C70F783001984B7 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F152C70F783001984B7 /* EndpointProtocol.swift */; };
 		BF4D9F182C70F798001984B7 /* ServiceProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F172C70F798001984B7 /* ServiceProviderProtocol.swift */; };
-		BF4D9F1A2C70F7D1001984B7 /* ServicePluginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F192C70F7D1001984B7 /* ServicePluginProtocol.swift */; };
 		BF4D9F1C2C70F7E0001984B7 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F1B2C70F7E0001984B7 /* HTTPMethod.swift */; };
 		BF4D9F1E2C70F7F1001984B7 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F1D2C70F7F1001984B7 /* ServiceProvider.swift */; };
-		BF4D9F202C70F81E001984B7 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F1F2C70F81E001984B7 /* NetworkLogger.swift */; };
 		BF4D9F222C70F84D001984B7 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F212C70F84D001984B7 /* APIError.swift */; };
 		BF4D9F262C70F89B001984B7 /* URL+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F252C70F89B001984B7 /* URL+Ext.swift */; };
 		BF4D9F282C71047F001984B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F272C71047F001984B7 /* Constants.swift */; };
@@ -85,10 +83,8 @@
 		BF4D9F0C2C70EFB6001984B7 /* StocksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksViewController.swift; sourceTree = "<group>"; };
 		BF4D9F152C70F783001984B7 /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
 		BF4D9F172C70F798001984B7 /* ServiceProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProviderProtocol.swift; sourceTree = "<group>"; };
-		BF4D9F192C70F7D1001984B7 /* ServicePluginProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePluginProtocol.swift; sourceTree = "<group>"; };
 		BF4D9F1B2C70F7E0001984B7 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		BF4D9F1D2C70F7F1001984B7 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
-		BF4D9F1F2C70F81E001984B7 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		BF4D9F212C70F84D001984B7 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		BF4D9F252C70F89B001984B7 /* URL+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Ext.swift"; sourceTree = "<group>"; };
 		BF4D9F272C71047F001984B7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -279,7 +275,6 @@
 				BF4D9F142C70F762001984B7 /* Protocols */,
 				BF4D9F1B2C70F7E0001984B7 /* HTTPMethod.swift */,
 				BF4D9F1D2C70F7F1001984B7 /* ServiceProvider.swift */,
-				BF4D9F1F2C70F81E001984B7 /* NetworkLogger.swift */,
 				BF4D9F212C70F84D001984B7 /* APIError.swift */,
 			);
 			path = NetworkLayer;
@@ -290,7 +285,6 @@
 			children = (
 				BF4D9F152C70F783001984B7 /* EndpointProtocol.swift */,
 				BF4D9F172C70F798001984B7 /* ServiceProviderProtocol.swift */,
-				BF4D9F192C70F7D1001984B7 /* ServicePluginProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -465,8 +459,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF4D9F202C70F81E001984B7 /* NetworkLogger.swift in Sources */,
-				BF4D9F1A2C70F7D1001984B7 /* ServicePluginProtocol.swift in Sources */,
 				BF4D9F3B2C71EC4C001984B7 /* StockCell.swift in Sources */,
 				BF4D9ED62C70EE52001984B7 /* AppDelegate.swift in Sources */,
 				BF4D9ED82C70EE52001984B7 /* SceneDelegate.swift in Sources */,

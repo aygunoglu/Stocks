@@ -8,12 +8,6 @@
 import Foundation
 
 final class ServiceProvider: ServiceProviderProtocol {
-    public var plugins: [ServicePluginProtocol] = [NetworkLogger()]
-    
-    init(plugins: [ServicePluginProtocol] = []) {
-        self.plugins.append(contentsOf: plugins)
-    }
-    
     private var session: URLSession {
         let configuration = URLSessionConfiguration.default
         configuration.waitsForConnectivity = true
@@ -49,7 +43,6 @@ final class ServiceProvider: ServiceProviderProtocol {
     }
     
     private func prepareRequest(endpoint: EndpointProtocol) throws -> URLRequest {
-        /// TODO: Insert willSend plugin method here
         do {
             let request = try endpoint.urlRequest()
             return request
@@ -67,7 +60,6 @@ final class ServiceProvider: ServiceProviderProtocol {
         case 200...299:
             do {
                 let responseModel = try JSONDecoder().decode(T.self, from: data)
-                plugins.forEach { $0.didReceive(result: .success(response), endpoint: endpoint) }
                 return responseModel
             } catch let error {
                 print("❌", error)
