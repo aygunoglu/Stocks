@@ -19,7 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let rootVC = ViewControllerMaker.stocksViewController()
+        
+        let rootVC = ViewControllerMaker.stocksViewController(
+            defaultPrimaryField: Constants.defaultPrimaryField,
+            defaultSecondaryField: Constants.defaultSecondaryField
+        )
         let rootNC = RootNavigationController(rootViewController: rootVC)
         window.rootViewController = rootNC
         

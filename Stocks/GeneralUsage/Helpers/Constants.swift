@@ -14,4 +14,7 @@ struct Constants {
     static let stocksVCNavigationTitle = "Stoklar"
     
     static let stockCellIdentifier = "StockCell"
+    
+    static let defaultPrimaryField = Field(name: "Son", key: "las")
+    static let defaultSecondaryField = Field(name: "Fark", key: "ddi")
 }

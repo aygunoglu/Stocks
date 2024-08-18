@@ -8,8 +8,8 @@
 import Foundation
 
 final class ViewControllerMaker {
-    static func stocksViewController() -> StocksViewController {
-        let viewModel: StocksViewModelProtocol = StocksViewModel()
+    static func stocksViewController(defaultPrimaryField: Field? = nil, defaultSecondaryField: Field? = nil) -> StocksViewController {
+        let viewModel: StocksViewModelProtocol = StocksViewModel(defaultPrimaryField: defaultPrimaryField, defaultSecondaryField: defaultSecondaryField)
         let viewController = StocksViewController(viewModel: viewModel)
         
         return viewController
