@@ -7,14 +7,15 @@
 
 import UIKit
 
+// MARK: - StocksDetailResponseModel
 struct StocksDetailResponseModel: Codable {
-    private let dict: [[String: String]]?
+    private let dictionaries: [[String: String]]?
     
     func getDisplayModels(
         primaryField: Field?,
         secondaryField: Field?
     ) -> [StockDisplayModel]? {
-        return dict?.compactMap({ stockDict in
+        return dictionaries?.compactMap({ stockDict in
             StockDisplayModel(
                 name: stockDict["tke"],
                 lastUpdateDate: stockDict["clo"],
@@ -28,10 +29,11 @@ struct StocksDetailResponseModel: Codable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case dict = "l"
+        case dictionaries = "l"
     }
 }
 
+// MARK: - StockDisplayModel
 struct StockDisplayModel {
     let name: String?
     let lastUpdateDate: String?
