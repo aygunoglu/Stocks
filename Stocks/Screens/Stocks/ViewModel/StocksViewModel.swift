@@ -7,43 +7,97 @@
 
 import Foundation
 
+// MARK: - StocksViewModelProtocol
 protocol StocksViewModelProtocol: AnyObject {
-    var dataUpdated: VoidHandler? { get set }
+    var stocksDidUpdate: VoidHandler? { get set }
+    func loadStocks()
+    
+    // TableView Helpers
     func getSectionCount() -> Int
     func getCellCount() -> Int
-    func loadStocks()
+    func getStockItem(for indexPath: IndexPath) -> StockDisplayModel?
 }
 
+// MARK: - StocksViewModel
 final class StocksViewModel: StocksViewModelProtocol {
     private let serviceProvider: ServiceProviderProtocol
+    var fields: [Field]?
     
-    var dataUpdated: VoidHandler?
+    var selectedPrimaryField: Field?
+    var selectedSecondaryField: Field?
+    
+    var stockItems: [StockDisplayModel] = []
+    var stocksDidUpdate: VoidHandler?
     
     init(serviceProvider: ServiceProviderProtocol = ServiceProvider()) {
       self.serviceProvider = serviceProvider
     }
     
+    // MARK: - Networking
     func loadStocks() {
         serviceProvider.request(
             endpoint: StocksEndpoint.getStocks,
-            responseModel: StocksResponseModel.self
+            responseModel: StocksPageResponseModel.self
         ) { [weak self] result in
             guard let self else { return }
             
             switch result {
             case .success(let responseModel):
-                print(responseModel)
+                self.fields = responseModel.fields
+                loadStockDetails(
+                    stocks: responseModel.stocks?.map { $0.tke ?? "" },
+                    primaryField: selectedPrimaryField,
+                    secondaryField: selectedSecondaryField
+                )
             case .failure(let error):
                 print(error)
             }
         }
     }
     
+    func loadStockDetails(
+        stocks: [String]?,
+        primaryField: Field?,
+        secondaryField: Field?
+    ) {
+        guard let stocks else { return }
+        
+        serviceProvider.request(
+            endpoint: StocksEndpoint.getStockInfo(
+                stocks: stocks,
+                primaryField: primaryField,
+                secondaryField: secondaryField
+            ),
+            responseModel: StocksDetailResponseModel.self
+        ) { [weak self] result in
+            guard let self else { return }
+            
+            switch result {
+            case .success(let responseModel):
+                self.stockItems = responseModel.getDisplayModels(
+                    primaryField: primaryField,
+                    secondaryField: secondaryField
+                ) ?? []
+                self.stocksDidUpdate?()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
+}
+
+// MARK: TableView Helpers
+extension StocksViewModel {
     func getSectionCount() -> Int {
-        return 0
+        return 1
     }
     
     func getCellCount() -> Int {
-        return 0
+        return stockItems.count
+    }
+    
+    func getStockItem(for indexPath: IndexPath) -> StockDisplayModel? {
+        return stockItems[safe: indexPath.row]
     }
 }

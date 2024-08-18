@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF3A79F82C72088700EF1FAB /* StocksDetailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3A79F72C72088700EF1FAB /* StocksDetailResponseModel.swift */; };
 		BF4D9ED62C70EE52001984B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9ED52C70EE52001984B7 /* AppDelegate.swift */; };
 		BF4D9ED82C70EE52001984B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9ED72C70EE52001984B7 /* SceneDelegate.swift */; };
 		BF4D9EDF2C70EE53001984B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4D9EDE2C70EE53001984B7 /* Assets.xcassets */; };
@@ -27,10 +28,13 @@
 		BF4D9F282C71047F001984B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F272C71047F001984B7 /* Constants.swift */; };
 		BF4D9F2A2C7105E3001984B7 /* StocksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F292C7105E3001984B7 /* StocksViewModel.swift */; };
 		BF4D9F2C2C7106E2001984B7 /* StockCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F2B2C7106E2001984B7 /* StockCellType.swift */; };
-		BF4D9F2F2C710A68001984B7 /* StocksResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F2E2C710A68001984B7 /* StocksResponseModel.swift */; };
+		BF4D9F2F2C710A68001984B7 /* StocksPageResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F2E2C710A68001984B7 /* StocksPageResponseModel.swift */; };
 		BF4D9F322C7129B2001984B7 /* StocksEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F312C7129B2001984B7 /* StocksEndpoint.swift */; };
 		BF4D9F342C712B7F001984B7 /* ViewControllerMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F332C712B7F001984B7 /* ViewControllerMaker.swift */; };
 		BF4D9F362C713AA9001984B7 /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F352C713AA9001984B7 /* TypeAliases.swift */; };
+		BF4D9F382C71E214001984B7 /* Collection+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F372C71E214001984B7 /* Collection+Ext.swift */; };
+		BF4D9F3B2C71EC4C001984B7 /* StockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D9F392C71EC4C001984B7 /* StockCell.swift */; };
+		BF4D9F3C2C71EC4C001984B7 /* StockCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF4D9F3A2C71EC4C001984B7 /* StockCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF3A79F72C72088700EF1FAB /* StocksDetailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksDetailResponseModel.swift; sourceTree = "<group>"; };
 		BF4D9ED22C70EE52001984B7 /* Stocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4D9ED52C70EE52001984B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF4D9ED72C70EE52001984B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,10 +80,13 @@
 		BF4D9F272C71047F001984B7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BF4D9F292C7105E3001984B7 /* StocksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksViewModel.swift; sourceTree = "<group>"; };
 		BF4D9F2B2C7106E2001984B7 /* StockCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCellType.swift; sourceTree = "<group>"; };
-		BF4D9F2E2C710A68001984B7 /* StocksResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksResponseModel.swift; sourceTree = "<group>"; };
+		BF4D9F2E2C710A68001984B7 /* StocksPageResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksPageResponseModel.swift; sourceTree = "<group>"; };
 		BF4D9F312C7129B2001984B7 /* StocksEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksEndpoint.swift; sourceTree = "<group>"; };
 		BF4D9F332C712B7F001984B7 /* ViewControllerMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMaker.swift; sourceTree = "<group>"; };
 		BF4D9F352C713AA9001984B7 /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
+		BF4D9F372C71E214001984B7 /* Collection+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Ext.swift"; sourceTree = "<group>"; };
+		BF4D9F392C71EC4C001984B7 /* StockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCell.swift; sourceTree = "<group>"; };
+		BF4D9F3A2C71EC4C001984B7 /* StockCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				BF4D9F0B2C70EFA6001984B7 /* Stocks */,
+				BF4D9F102C70F0AB001984B7 /* Model */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -195,7 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				BF4D9F302C7129A5001984B7 /* Network */,
-				BF4D9F102C70F0AB001984B7 /* Model */,
 				BF4D9F0F2C70F0A6001984B7 /* ViewModel */,
 				BF4D9F0E2C70F09F001984B7 /* View */,
 			);
@@ -223,7 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				BF4D9F2D2C710A5C001984B7 /* General */,
-				BF4D9F2E2C710A68001984B7 /* StocksResponseModel.swift */,
+				BF4D9F2E2C710A68001984B7 /* StocksPageResponseModel.swift */,
+				BF3A79F72C72088700EF1FAB /* StocksDetailResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,6 +248,8 @@
 		BF4D9F122C70F0BB001984B7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				BF4D9F392C71EC4C001984B7 /* StockCell.swift */,
+				BF4D9F3A2C71EC4C001984B7 /* StockCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -280,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				BF4D9F252C70F89B001984B7 /* URL+Ext.swift */,
+				BF4D9F372C71E214001984B7 /* Collection+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -405,6 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF4D9EDF2C70EE53001984B7 /* Assets.xcassets in Resources */,
+				BF4D9F3C2C71EC4C001984B7 /* StockCell.xib in Resources */,
 				BF4D9EE22C70EE53001984B7 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +445,7 @@
 			files = (
 				BF4D9F202C70F81E001984B7 /* NetworkLogger.swift in Sources */,
 				BF4D9F1A2C70F7D1001984B7 /* ServicePluginProtocol.swift in Sources */,
+				BF4D9F3B2C71EC4C001984B7 /* StockCell.swift in Sources */,
 				BF4D9ED62C70EE52001984B7 /* AppDelegate.swift in Sources */,
 				BF4D9ED82C70EE52001984B7 /* SceneDelegate.swift in Sources */,
 				BF4D9F1E2C70F7F1001984B7 /* ServiceProvider.swift in Sources */,
@@ -443,11 +457,13 @@
 				BF4D9F1C2C70F7E0001984B7 /* HTTPMethod.swift in Sources */,
 				BF4D9F282C71047F001984B7 /* Constants.swift in Sources */,
 				BF4D9F262C70F89B001984B7 /* URL+Ext.swift in Sources */,
-				BF4D9F2F2C710A68001984B7 /* StocksResponseModel.swift in Sources */,
+				BF4D9F2F2C710A68001984B7 /* StocksPageResponseModel.swift in Sources */,
 				BF4D9F0A2C70EF78001984B7 /* RootNavigationController.swift in Sources */,
+				BF4D9F382C71E214001984B7 /* Collection+Ext.swift in Sources */,
 				BF4D9F182C70F798001984B7 /* ServiceProviderProtocol.swift in Sources */,
 				BF4D9F0D2C70EFB6001984B7 /* StocksViewController.swift in Sources */,
 				BF4D9F222C70F84D001984B7 /* APIError.swift in Sources */,
+				BF3A79F82C72088700EF1FAB /* StocksDetailResponseModel.swift in Sources */,
 				BF4D9F322C7129B2001984B7 /* StocksEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
