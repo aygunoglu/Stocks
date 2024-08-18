@@ -14,6 +14,11 @@ extension StocksViewController {
         navigationItem.title = Constants.stocksVCNavigationTitle
     }
     
+    final func applyActivityIndicator() {
+      activityIndicator.initialize(in: view)
+      activityIndicator.shouldAnimate(true)
+    }
+    
     func setupTableView() {
         tableView = UITableView(frame: .zero, style: .plain)
         tableView.dataSource = self
@@ -82,6 +87,7 @@ extension StocksViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.tableView.highlightRows(for: indexPathsToHighlight)
+                self.activityIndicator.shouldAnimate(false)
             }
         }
     }

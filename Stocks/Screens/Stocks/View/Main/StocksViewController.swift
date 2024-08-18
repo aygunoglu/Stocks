@@ -12,6 +12,8 @@ final class StocksViewController: UIViewController {
     var tableView: UITableView!
     var headerView: StocksHeaderView!
     
+    var activityIndicator = ActivityIndicator()
+    
     var viewModel: StocksViewModelProtocol
     
     init(viewModel: StocksViewModelProtocol) {
@@ -29,6 +31,7 @@ final class StocksViewController: UIViewController {
         setupHeaderView()
         setupTableView()
         setupBindings()
+        applyActivityIndicator()
         viewModel.loadStockList()
     }
 }
