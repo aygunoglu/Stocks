@@ -14,7 +14,7 @@ extension StocksViewController {
         navigationItem.title = Constants.stocksVCNavigationTitle
     }
     
-    final func applyActivityIndicator() {
+    func applyActivityIndicator() {
       activityIndicator.initialize(in: view)
       activityIndicator.shouldAnimate(true)
     }

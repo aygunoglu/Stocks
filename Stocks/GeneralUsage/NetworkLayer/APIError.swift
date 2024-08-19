@@ -21,7 +21,7 @@ enum APIError: Error {
         switch self {
         case let .invalidRequest(description): return description
         case let .requestFailed(description): return "Request Failed: \(description)"
-        case .invalidData: return "Invalid Data)"
+        case .invalidData: return "Invalid Data"
         case let .responseUnsuccessful(description): return "Unsuccessful: \(description)"
         case let .jsonConversionFailure(description): return "JSON Conversion Failure: \(description)"
         case .jsonParsingFailure: return "JSON Parsing Failure"

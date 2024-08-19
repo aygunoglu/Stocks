@@ -66,8 +66,8 @@ extension StocksEndpoint: EndpointProtocol {
 
 // MARK: - Keys
 extension StocksEndpoint {
-  private enum Keys: String {
-    case stocks = "stcs"
-    case fields
-  }
+    private enum Keys: String {
+        case stocks = "stcs"
+        case fields
+    }
 }
